@@ -1,0 +1,18 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - TweetVec</title>
+      {% else %}
+      <title>Welcome to TweetVec</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>TweetVec:
+          <a href="/index">About</a> |
+          <a href="/analyze">Analyze</a> |
+          <a href="/proposal">Proposal</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

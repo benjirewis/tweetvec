@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cross Pollination Theory and Techniques on Twitter</h1>
+  <h2>Diversifying Political Content Algorithmically On Critical Metrics for Social Distance & Disposition</h2>
+  <h2>CPSC 490: Computer Science Final Project, Benjamin Rewis & Jack Huang</h2>
+  <div><p>Benjamin Rewis & Jack Huang</p></div>
+  <div><p>February 6th 2020</p></div>
+  <div><p>Advisor: Joan Feigenbaum</p></div>
+  <h3>Summary:</h3>
+  <div><p>
+We will be examining the theory and methods of political content diversification on Twitter. Twitter users (and users of Facebook, Instagram, etc.) are often unknowingly restricted by the content of their feeds. By design, Twitter provides only a subset of tailored content to each of its users. This subset of information is often politically, socially or otherwise homogeneous. This 490 project will critically respond to this homogeneity and provide potential diversification methods with a combination of graph theory and natural language processing.
+  </p></p>
+  <h3>Theory (Jack Huang):</h3>
+  <div><p>
+The primary topical focus of this project will be the social stratification of content and user engagement on social media platforms. In light of the recent upcoming presidential election this year, we will focus specifically on political content on Twitter for this 490 project. One of the main analytical goals of this project will be to discern salient behavioral characteristics besides explicitly expressed political opinion that can help identify users’ political disposition. Twitter has a unique feature where a user’s timeline is informed by not only what the accounts they follow choose to post or retweet, but also what posts they like. In this way, interesting trends can be observed between political ideologies and social/miscellaneous interests. For example, an interesting data-point for this project is cultural icon Elon Musk, who is largely known for his boundary-pushing attitude towards science and technology but is also well-known for cultivating a vaguely centrist-minded online fanbase, curated through a meme-heavy social media presence. Moreover, this project will require the development of a comprehensive model for mapping political alignments, particularly one that can accurately accomodate for realistic compositions of varying political sentiments. In other words, this project seeks to outline an effective set of metrics to gauge “distance” of political perspective amongst self-isolating user bubbles/news sources that extend beyond liberal/conservative categories. To combat the proliferate effect of biased/fake news being fed towards polarizing audiences, this project aims to develop a tool that can provide users with alternative accounts to follow that would diversify the opinions that they are exposed to on Twitter. A major concern of this project will be to avoid simplistic binaries of leftist/rightist politics in favor of a richer, nuanced model that considers the dynamic and often inconsistent politics of the average voter (i.e., Twitter user). Methods for this aspect of this project will include research into political theory literature as well as a study on current social media trends that involve some political dimension. These discerned metrics will thus be used to develop an NLP-based tool for identifying and suggesting alternative Twitter accounts.
+  </p></p>
+  <h3>Techniques (Benjamin Rewis):</h3>
+  <div><p>
+The task of cross-pollination for social media can be defined as providing content to users that would not normally be seen on their feeds (because of domain or political slant) but is still relevant enough to not alienate the user. We plan on designing two separate but related algorithms. The first will cross-pollinate a single Twitter user by examining their feed, followers, and followed accounts to provide a list of new handles that could diversify their feed. The second will cross-pollinate a group of Twitter users by examining each user’s feed, followers, and followed accounts to provide a list of new handles that could act as a common ground between the group of users.
+To create these algorithms, we will have to define a metric of distance between Twitter users. This distance should correspond to the similarity between accounts. To compare users quantitatively, we must have some mathematical representation of each account. We plan to use Twitter user embeddings to represent sets of users.
+An embedding is a list of numbers (vector) representing the distribution of an object. In computational linguistics, embeddings are often used to represent words. Words can be defined by the types of words with which they co-occur. Basic neural network models such as Word2Vec can create these vectors with large amounts of training data. A similar algorithm can be employed to vectorize Twitter users by their distribution. While a word’s distribution is defined as its context in some corpus, a user’s distribution can be defined as the users they follow and are followed by. In this sense, we can mathematically encode Twitter users based on their placement in the Twitter user graph. Furthermore we can use Doc2Vec, an algorithm based on Word2Vec, to represent the content of each Twitter user’s tweets as one vector. Adding a user’s embedding by followers and embedding by content should produce an accurate vector representation. Therefore, we can compare user vectors using cosine similarity or Euclidean distance as a metric of distance.
+Using this metric of distance, we will define an optimal distance for cross-pollination of a single user and a method of averaging user vectors for cross-pollination of multiple users.
+We will also statistically weigh political content higher than other content to ensure cross-pollination happens along political lines.
+  </p></p>
+  <h3>Deliverables:</h3>
+  <div><p>
+A research paper (Jack Huang), and implementation of described algorithms (Benjamin Rewis).
+  </p></p>
+{% endblock %}
